@@ -53,29 +53,23 @@ function calcDesc(v: number, d: number) {
   return v - d;
 }
 
-function calcDesc2(v: number, d: number) {
-  return v - d / 2;
-}
-
-export default function produtosPagina() {
-  //Pegando dados do usuario
+export default function ProdutosPagina() {
+  // Nome do componente ajustado para maiúscula
+  // Pegando dados do usuário
   const router = useRouter();
-
-  //const nome = router.query.nome;
-  //const curso = router.query.curso;
-
   const { nome, curso } = router.query;
-  console.log(nome, curso);
+
+  console.log(nome, curso); // Adicionando ? para evitar erros se nome ou curso forem undefined
 
   return (
     <div>
       <Topo />
 
       <div className='flex justify-center gap-3'>
-        {produtos.map((e: any) => {
+        {produtos.map(e => {
           if (e.disponivel) {
             return (
-              //Rendering the products
+              // Renderizando os produtos
               <Card
                 key={e.id}
                 produto={e.produto}
